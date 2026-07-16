@@ -29,6 +29,12 @@ int16_t Ct62LoRaWan::begin(const Ct62LoRaConfig& cfg) {
     return state;
   }
 
+  // Raise the PA over-current limit to the SX1262 datasheet value. RadioLib's begin()
+  // defaults OCP to 60 mA (the SX1261 +15 dBm value); on the SX1262 high-power PA that
+  // current-limits and COMPRESSES output at high power — the level stops tracking the
+  // setting near the top. AS923-TW here runs +22 dBm, so set 140 mA (SX1262 datasheet).
+  _radio->setCurrentLimit(140.0);
+
   if (_cfg.tcxoVoltage > 0.0f) {
     state = _radio->setTCXO(_cfg.tcxoVoltage);
     if (state != RADIOLIB_ERR_NONE) {

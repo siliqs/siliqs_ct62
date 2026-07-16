@@ -1,6 +1,6 @@
 {
   "name": "siliqs_ct62",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "LoRaWAN driver for Heltec HT-CT62 (ESP32-C3 + SX1262). RadioLib-based. ABP + OTAA, AS923-TW patch script, NVS FCntUp persistence, radio sleep helper.",
   "keywords": ["lorawan", "lora", "esp32", "esp32-c3", "sx1262", "ht-ct62", "siliqs"],
   "authors": [
